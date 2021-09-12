@@ -1,0 +1,55 @@
+{% extends "tv_show_app/base.html" %}
+
+{% block title %}Read One{% endblock %}
+{% load static %}
+
+{% block content %}
+{% include "tv_show_app/navbar.html" %}
+
+<div class="container mt-4">
+    <div class="row align-center mb-4">
+        <h1 class="text-black">TV Show  {{show_info.id}}</h1>
+    </div>
+    <div class="col-8 card ">
+        <div class="mb-3 card-body">
+            <div class="row mt-4">
+                <label for="title" class="col-sm-3 col-form-label ">Title:</label>
+                <div class="col-sm 9">
+                    <p class= "text-center fw-bold">{{show_info.title}}</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <label for="network" class="col-sm-3 col-form-label ">Network:</label>
+                <div class="col-sm 9">
+                    <p class= "text-center ">{{show_info.network}}</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <label for="release_date" class="col-sm-3 col-form-label ">Release Date:</label>
+                <div class="col-sm 9">
+                    <p class= "text-center ">{{show_info.release_date | date:"M d, Y"}}</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <label for="description" class="col-sm-3 col-form-label ">Description:</label>
+                <div class="col-sm 9">
+                    <p class= "text-center">{{show_info.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row mt-4">
+            <label for="update" class="col-sm-3 col-form-label ">Last Updated:</label>
+            <div class="col-sm 9">
+                <p class= "text-left ">{{show_info.update_at}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-expand-md">
+        <a class="nav-link" href="/shows/{{show_info.id}}/edit">Edit</a> | 
+        <a class="nav-link" href="/shows/{{show_info.id}}/delete">Delete</a>
+        
+    </div>
+</div>
+{% endblock %}
